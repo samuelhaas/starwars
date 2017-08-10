@@ -36,7 +36,6 @@ router.get('/planetresidents', function(req, res) {
   request({ url: `${baseUrl}/planets`, json: true })
   .then(results => {
     planets.push(...results.body.results);
-    console.info('planets', _.size(planets));
     return getTotalCharacters([], 1);
   })
   .then(characters => {
@@ -54,9 +53,6 @@ router.get('/planetresidents', function(req, res) {
 
     res.render('planets.ejs', { results: planetResidents });
   })
-
-
-
 })
 
 function getTotalCharacters(allData, pages) {
@@ -64,15 +60,14 @@ function getTotalCharacters(allData, pages) {
     url: `${baseUrl}/people?page=${pages}`,
     json: true
   };
-
   return request(options)
   .then(results => allData.push(...results.body.results))
   .then(() => {
     if(_.size(allData) < 50) {
       return getTotalCharacters(allData, ++pages);
-    } else {
-      return allData;
     }
+
+    return allData;
   })
 
 }
@@ -92,7 +87,6 @@ function sortResults(results, sortKey) {
         return parseFloat(result.height);
       });
       break;
-
   }
   return results;
 }
