@@ -7,7 +7,7 @@ const baseUrl = 'http://swapi.co/api';
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index.html', { title: 'Express' });
+  res.render('index.ejs', { title: 'Express' });
 });
 
 router.get('/characters', function(req, res) {
