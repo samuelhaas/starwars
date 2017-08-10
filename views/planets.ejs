@@ -1,0 +1,15 @@
+<html>
+
+  <body>
+    <ul>
+    <% results.forEach(function(result) { %>
+      <li>Name: <%= result.name %></li>
+      <ul>
+      <% result.residents.forEach(function(resident) { %>
+        <li><%= resident%></li>
+      <% }) %>
+      </ul>
+    <% }) %>
+  </ul>
+  </body>
+</html>

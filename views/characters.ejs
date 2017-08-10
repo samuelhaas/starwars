@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <style>
+      .row {
+        display: inline-block;
+        width: 30%;
+      }
+      .header {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="row header">Name</div>
+      <div class="row header">Height</div>
+      <div class="row header">Mass</div>
+    </div>
+    <% results.forEach(function(result) { %>
+      <div>
+        <div class="row"><%=result.name%></div>
+        <div class="row"><%=result.height%></div>
+        <div class="row"><%=result.mass%></div>
+      </div>
+    <% }) %>
+  </body>
+</html>
